@@ -1,8 +1,9 @@
 $LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__))) unless $LOAD_PATH.include?(File.expand_path(File.dirname(__FILE__)))
 require 'pathname'
 module Spork
-  BINARY = File.expand_path(File.dirname(FILE) + '/../bin/spork') unless defined? BINARY
-LIBDIR = Pathname.new(File.expand_path(File.dirname(FILE))) unless defined? LIBDIR
+
+  BINARY = File.expand_path(File.dirname(__FILE__) + '/../bin/spork') unless defined? BINARY
+  LIBDIR = Pathname.new(File.expand_path(File.dirname(__FILE__))) unless defined? LIBDIR
 
   autoload :Server,        (LIBDIR + 'spork/server').to_s
   autoload :TestFramework, (LIBDIR + 'spork/test_framework').to_s
